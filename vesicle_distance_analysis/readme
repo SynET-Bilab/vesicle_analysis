@@ -1,0 +1,33 @@
+#
+
+example usage:
+
+```python
+from vesicle_distance_analysis.structures import VesicleList, Surface
+
+vl = VesicleList()
+s = Surface()
+vl.fromXMLFile("path_to_your_file.xml")
+s.from_model_auto_segment('path_to_your_membrane_segmentation_result.mod')
+
+vl.distance_from_surface(s)
+vl.toXMLFile("output_file.xml")
+
+```
+
+A typical xml file for input should be like this, generated from our template match method or DL-based segmentation method:
+
+```xml
+<VesicleList pixelSize="0.857">
+  <Vesicle vesicleId="1">
+    <Type t="vesicle"/>
+    <Center X="310.0" Y="794.0" Z="150.0"/>
+    <Radius r="15.7526254376"/>
+    <Center2D X="310.3748574604908" Y="795.7467248667151" Z="150.0"/>
+    <Radius2D r1="15.521375659057883" r2="14.291893409051173"/>
+    <Rotation2D phi="0.678329687373"/>
+  </Vesicle>
+</VesicleList>
+```
+
+For membrane segmentation, we recommend you to use our other method: https://github.com/SynET-Bilab/SegSynMembrane
