@@ -1,0 +1,15 @@
+#
+
+example usage:
+
+```bash
+thick=$1
+runtt=$2
+savedt=$(($runtt/100))
+
+name=thick${thick}_t${runtt}
+
+dx=1
+dt=0.05
+python simcool.py --output $name --thick-s $thick --thick-e 2000 --alpha-s 133 --alpha-e 18472 --temp-0 307 --temp-e 273 --run-dx $dx --run-dt $dt --run-tt $runtt --save-dx 10 --save-dt $savedt
+```
